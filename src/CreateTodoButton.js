@@ -1,8 +1,14 @@
+import { TodoItem } from "./TodoItem";
 import "./styles/CreateTodoButton.css";
 function CreateTodoButton(props) {
   return (
-    <button className="CreateTodoButton">
-      <strong> + </strong>
+    <button
+      onClick={(event) => {
+        console.log(event.target);
+      }}
+      className="CreateTodoButton"
+    >
+      ✚
     </button>
   );
 }

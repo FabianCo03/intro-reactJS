@@ -1,5 +1,6 @@
 .TodoItem {
-    background-color: #FAFAFA;
+    background-color: #212A3E;
+    color: white;
     position: relative;
     display: flex;
     justify-content: center;
@@ -38,7 +39,7 @@
   .Icon-check--active {
     color: #4caf50;
   }
-  
+
   .Icon-delete {
     position: absolute;
     top: -24px;
