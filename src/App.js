@@ -1,5 +1,4 @@
-import "./App.css";
-
+import React from "react";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
@@ -7,16 +6,17 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
 const defaultTodos = [
-  { text: "Cortar cebolla", completed: false },
+  { text: "Cortar cebolla", completed: true },
 
   { text: "Hacer trabajos", completed: true },
 
-  { text: "Jugar fulvol", completed: true },
+  { text: "Jugar fulvol", completed: false },
+
+  { text: "Comer", completed: false },
 ];
 
 function App() {
   return (
-    // <React.Fragment>
     <>
       <TodoCounter completed={16} total={20} />
       <TodoSearch />
@@ -24,6 +24,7 @@ function App() {
       <TodoList>
         {defaultTodos.map((todo) => (
           <TodoItem
+            // key es cuando queremos renderizar distintos elementos a partir de un array
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
@@ -33,7 +34,6 @@ function App() {
 
       <CreateTodoButton />
     </>
-    // {/* </React.Fragment> */}
   );
 }
 
