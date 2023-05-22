@@ -1,5 +1,9 @@
 function CreateTodoButton(props) {
-  return <button>Agregar ToDo</button>;
+  return (
+    <button>
+      <strong> + </strong>
+    </button>
+  );
 }
 
 export { CreateTodoButton };
