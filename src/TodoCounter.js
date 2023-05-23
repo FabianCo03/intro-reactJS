@@ -9,3 +9,5 @@ function TodoCounter({ completed, total }) {
 }
 
 export { TodoCounter };
+
+// cómo se comparten los estados de un componente hijo a uno padre, NO SE PUEDE, solo se puede de padres a hijos (por ahora)

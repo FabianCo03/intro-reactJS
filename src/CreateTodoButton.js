@@ -8,7 +8,7 @@ function CreateTodoButton(props) {
       }}
       className="CreateTodoButton"
     >
-      ✚
+      +
     </button>
   );
 }

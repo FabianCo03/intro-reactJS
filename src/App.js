@@ -8,7 +8,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
 
-  { text: "Hacer trabajos", completed: true },
+  { text: "Hacer trabajos", completed: false },
 
   { text: "Jugar fulvol", completed: false },
 
@@ -16,10 +16,19 @@ const defaultTodos = [
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+
+  const [searchValue, setSearchValue] = React.useState("");
+  console.log("los usuarios buscan ToDO'S de " + searchValue);
+  // !! convierte a booleano cualquier cosa que devolvamos
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos.length;
+
   return (
     <>
-      <TodoCounter completed={16} total={20} />
-      <TodoSearch />
+      <TodoCounter completed={completedTodos} total={totalTodos} />
+
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
         {defaultTodos.map((todo) => (
