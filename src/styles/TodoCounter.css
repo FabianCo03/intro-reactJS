@@ -9,3 +9,11 @@
   .TodoCounter span {
     font-weight: bold;
   }
+
+  .TodoCounter #messageCompletedTodos{
+    text-align: left; 
+    font-family: Arial; 
+    font-size: 30px; 
+    color: #4caf50; 
+    text-shadow: 0px 0px 9px;
+  }

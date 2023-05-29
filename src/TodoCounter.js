@@ -1,10 +1,19 @@
 import "./styles/TodoCounter.css";
 
 function TodoCounter({ completed, total }) {
+  let messageCompletedTodos = "";
+
+  if (completed === total) {
+    messageCompletedTodos = "FELICIDADES!!!";
+  }
   return (
-    <h1 className="TodoCounter">
-      Has completado <span>{completed}</span> de <span>{total}</span> TODOs
-    </h1>
+    <>
+      <h1 className="TodoCounter">
+        Has completado <span>{completed}</span> de <span>{total}</span> TODOs
+        <br />
+        <span id="messageCompletedTodos">{messageCompletedTodos}</span>
+      </h1>
+    </>
   );
 }
 
