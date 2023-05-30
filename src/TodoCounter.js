@@ -4,7 +4,9 @@ function TodoCounter({ completed, total }) {
   let messageCompletedTodos = "";
 
   if (completed === total) {
-    messageCompletedTodos = "FELICIDADES!!!";
+    if (completed > 0) {
+      messageCompletedTodos = "FELICIDADES!!!";
+    }
   }
   return (
     <>

@@ -5,19 +5,32 @@ import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
-const defaultTodos = [
-  { text: "Hacer trabajos", completed: false },
+// const defaultTodos = [
+//   { text: "Hacer trabajos", completed: false },
 
-  { text: "Jugar fulvol", completed: false },
+//   { text: "Jugar fulvol", completed: false },
 
-  { text: "Comer", completed: false },
-];
+//   { text: "Comer", completed: false },
+// ];
+
+// localStorage.setItem('TODOS_v1', JSON.stringify(defaultTodos))
+// localStorage.removeItem('TODOS_v1')
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem("TODOS_v1");
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem("TODOS_v1", JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos);
 
   const [searchValue, setSearchValue] = React.useState("");
-  console.log("los usuarios buscan ToDO'S de " + searchValue);
 
   // !! convierte a booleano cualquier cosa que devolvamos
 
@@ -30,18 +43,23 @@ function App() {
     return todoText.includes(searchText.toLowerCase());
   });
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem("TODOS_v1", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text == text);
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text == text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
