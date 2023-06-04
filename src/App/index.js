@@ -12,6 +12,22 @@ function App() {
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  console.log("Log 1");
+
+  // React.useEffect(() => {
+  //   console.log("Loooooog 2");
+  // });
+
+  // React.useEffect(() => {
+  //   console.log("Loooooog 2");
+  // }, []);
+
+  React.useEffect(() => {
+    console.log("Loooooog 2");
+  }, [totalTodos]);
+
+  console.log("Log 3");
+
   const searchedTodos = todos.filter((todo) => {
     const todoText = todo.text.toLowerCase();
     const searchText = searchValue.toLowerCase();
@@ -55,5 +71,5 @@ export default App;
 //   { text: "Comer", completed: false },
 // ];
 
-// localStorage.setItem('TODOS_v1', JSON.stringify(defaultTodos))
-// localStorage.removeItem('TODOS_v1')
+// // localStorage.setItem('TODOS_v1', JSON.stringify(defaultTodos))
+// // localStorage.removeItem('TODOS_v1')
