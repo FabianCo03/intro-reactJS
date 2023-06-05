@@ -5,6 +5,8 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton/index";
 
 function AppUI({
+  loading,
+  error,
   completedTodos,
   totalTodos,
   searchValue,
@@ -20,6 +22,10 @@ function AppUI({
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
+        {loading && <p>Cargando ToDo's...</p>}
+        {error && <p>Error ! 💩</p>}
+        {!loading && searchedTodos.length === 0 && <p>Crea tu primer ToDo</p>}
+
         {searchedTodos.map((todo) => (
           <TodoItem
             // key es cuando queremos renderizar distintos elementos a partir de un array

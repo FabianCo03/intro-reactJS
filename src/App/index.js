@@ -3,30 +3,18 @@ import { AppUI } from "./AppUI";
 import { useLocalStorage } from "./useLocalStorage";
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage("TODOS_v1", []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_v1", []);
 
   const [searchValue, setSearchValue] = React.useState("");
 
   // !! convierte a booleano cualquier cosa que devolvamos
-
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
-
-  console.log("Log 1");
-
-  // React.useEffect(() => {
-  //   console.log("Loooooog 2");
-  // });
-
-  // React.useEffect(() => {
-  //   console.log("Loooooog 2");
-  // }, []);
-
-  React.useEffect(() => {
-    console.log("Loooooog 2");
-  }, [totalTodos]);
-
-  console.log("Log 3");
 
   const searchedTodos = todos.filter((todo) => {
     const todoText = todo.text.toLowerCase();
@@ -50,6 +38,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={totalTodos}
       searchValue={searchValue}
@@ -63,6 +53,7 @@ function App() {
 
 export default App;
 
+// localStorage.removeItem('TODOS_v1')
 // const defaultTodos = [
 //   { text: "Hacer trabajos", completed: false },
 
@@ -70,6 +61,4 @@ export default App;
 
 //   { text: "Comer", completed: false },
 // ];
-
-// // localStorage.setItem('TODOS_v1', JSON.stringify(defaultTodos))
-// // localStorage.removeItem('TODOS_v1')
+// localStorage.setItem('TODOS_v1', JSON.stringify(defaultTodos))
