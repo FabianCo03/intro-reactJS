@@ -14,15 +14,22 @@ function TodosLoading() {
   let [color, setColor] = useState("#000000");
 
   return (
-    <CircleLoader
-      color={color}
-      loading={loading}
-      cssOverride={override}
-      size={50}
-      aria-label="Loading Spinner"
-      data-testid="loader"
-      speedMultiplier={2}
-    />
+    <>
+      <CircleLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        speedMultiplier={2}
+      />
+      <div className="LoadingTodo-container">
+        <span className="LoadingTodo-completeIcon"></span>
+        <p className="LoadingTodo-text"></p>
+        <span className="LoadingTodo-deleteIcon"></span>
+      </div>
+    </>
   );
 }
 
