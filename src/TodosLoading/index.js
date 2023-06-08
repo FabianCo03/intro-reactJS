@@ -5,7 +5,7 @@ import CircleLoader from "react-spinners/CircleLoader";
 
 const override = (CSSProperties = {
   display: "block",
-  margin: "0 auto",
+  margin: "auto",
   borderColor: "#36d7b7",
 });
 
@@ -19,10 +19,10 @@ function TodosLoading() {
         color={color}
         loading={loading}
         cssOverride={override}
-        size={50}
+        size={25}
         aria-label="Loading Spinner"
         data-testid="loader"
-        speedMultiplier={2}
+        speedMultiplier={0.9}
       />
       <div className="LoadingTodo-container">
         <span className="LoadingTodo-completeIcon"></span>

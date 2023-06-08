@@ -1,3 +1,4 @@
+import React from "react";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
@@ -6,26 +7,26 @@ import { CreateTodoButton } from "../CreateTodoButton/index";
 import { TodosLoading } from "../TodosLoading/index";
 import { TodosError } from "../TodosError/index";
 import { EmptyTodos } from "../EmptyTodos/index";
+import { TodoContext } from "../TodoContext";
 
-function AppUI({
-  loading,
-  error,
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-}) {
+function AppUI() {
+  const { loading, error, searchedTodos, completeTodo, deleteTodo } =
+    React.useContext(TodoContext);
+
   return (
     <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoCounter />
+      <TodoSearch />
 
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
+      {/* El TodoContext.Consumer llama a children pero de forma distinta, lo hace utilizando las "render functions", el no espera que le enviemos un componente sino una función */}
       <TodoList>
-        {loading && <TodosLoading />}
+        {loading && (
+          <>
+            <TodosLoading />
+            <TodosLoading />
+            <TodosLoading />
+          </>
+        )}
         {error && <TodosError />}
         {!loading && searchedTodos.length === 0 && <EmptyTodos />}
 
