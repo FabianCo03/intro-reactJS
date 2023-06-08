@@ -12,7 +12,7 @@ function TodoProvider({ children }) {
   } = useLocalStorage("TODOS_v1", []);
 
   const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(true);
+  const [openModal, setOpenModal] = React.useState(false);
 
   // !! convierte a booleano cualquier cosa que devolvamos
   const completedTodos = todos.filter((todo) => !!todo.completed).length;

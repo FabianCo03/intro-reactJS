@@ -9,6 +9,7 @@ import { TodosError } from "../TodosError/index";
 import { EmptyTodos } from "../EmptyTodos/index";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
 
 function AppUI() {
   const {
@@ -52,7 +53,12 @@ function AppUI() {
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
-      {openModal && <Modal> Estoy en false </Modal>}
+      {openModal && (
+        <Modal>
+          {" "}
+          <TodoForm />{" "}
+        </Modal>
+      )}
     </>
   );
 }
