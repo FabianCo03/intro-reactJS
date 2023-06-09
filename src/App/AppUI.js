@@ -20,6 +20,7 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    searchValue,
   } = React.useContext(TodoContext);
 
   return (
@@ -37,7 +38,12 @@ function AppUI() {
           </>
         )}
         {error && <TodosError />}
-        {!loading && searchedTodos.length === 0 && <EmptyTodos />}
+
+        {!loading && searchedTodos.length
+          ? ""
+          : searchValue
+          ? "Consulta sin datos"
+          : "Crear TODOS"}
 
         {searchedTodos.map((todo) => (
           <TodoItem

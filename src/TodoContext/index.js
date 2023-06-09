@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { useLocalStorage } from "./useLocalStorage";
 
 const TodoContext = React.createContext();
@@ -11,8 +12,8 @@ function TodoProvider({ children }) {
     error,
   } = useLocalStorage("TODOS_v1", []);
 
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
   // !! convierte a booleano cualquier cosa que devolvamos
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -36,7 +37,7 @@ function TodoProvider({ children }) {
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 
