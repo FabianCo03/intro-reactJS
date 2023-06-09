@@ -17,3 +17,10 @@
     color: #4caf50; 
     text-shadow: 0px 0px 9px;
   }
+
+  @media(max-width:450px){
+    .TodoCounter{
+      width: 310px;
+      font-size: 20px;
+    }
+  }

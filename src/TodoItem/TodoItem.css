@@ -21,3 +21,9 @@
   .TodoItem-p--complete {
     text-decoration: line-through;
   }
+
+  @media(max-width:450px){
+    .TodoItem{
+      width: 310px;
+    }
+  }
