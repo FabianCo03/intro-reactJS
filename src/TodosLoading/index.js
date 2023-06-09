@@ -1,13 +1,13 @@
 import React from "react";
 import "./TodosLoading.css";
-import { useState, CSSProperties } from "react";
+import { useState } from "react";
 import CircleLoader from "react-spinners/CircleLoader";
 
-const override = (CSSProperties = {
+const override = {
   display: "block",
   margin: "auto",
   borderColor: "#36d7b7",
-});
+};
 
 function TodosLoading() {
   let [loading, setLoading] = useState(true);

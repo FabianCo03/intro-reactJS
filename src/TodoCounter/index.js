@@ -13,12 +13,14 @@ function TodoCounter() {
         Has completado <span>{completedTodos}</span> de{" "}
         <span>{totalTodos}</span> TODOs
         <br />
-        {totalTodos && completedTodos === totalTodos && (
-          <>
-            <span id="messageCompletedTodos">Felicidades!!</span>
-            <Confetti width={1000} height={1000} />
-          </>
-        )}
+        {totalTodos == 0
+          ? ""
+          : completedTodos === totalTodos && (
+              <>
+                <span id="messageCompletedTodos">Felicidades!!</span>
+                <Confetti width={1000} height={1000} />
+              </>
+            )}
       </h1>
     </>
   );
