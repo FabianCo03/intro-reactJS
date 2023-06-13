@@ -2,6 +2,7 @@
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
   "dependencies": {
+    "canvas-confetti": "1.6.0",
     "react": "^18",
     "react-confetti": "^6.1.0",
     "react-dom": "^18",
