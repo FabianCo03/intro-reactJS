@@ -43,7 +43,7 @@ function AppUI() {
           ? ""
           : searchValue
           ? "Consulta sin datos"
-          : "Crear TODOS"}
+          : "Crea tu primer TODO'S"}
 
         {searchedTodos.map((todo) => (
           <TodoItem
